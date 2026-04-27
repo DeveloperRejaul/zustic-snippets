@@ -1,0 +1,50 @@
+{
+  "name": "zustic-snippets",
+  "displayName": "Zustic Snippets",
+  "description": "Professional JavaScript and TypeScript code snippets for faster development",
+  "version": "1.0.0",
+  "publisher": "zustic",
+  "license": "MIT",
+  "icon": "assets/icon.png",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/yourusername/zustic-snippets"
+  },
+  "bugs": {
+    "url": "https://github.com/yourusername/zustic-snippets/issues"
+  },
+  "homepage": "https://github.com/yourusername/zustic-snippets#readme",
+  "keywords": [
+    "snippets",
+    "javascript",
+    "typescript",
+    "productivity",
+    "code-snippets"
+  ],
+  "engines": {
+   "vscode": "^1.100.0"
+  },
+  "categories": [
+    "Snippets"
+  ],
+  "contributes": {
+    "snippets": [
+      {
+        "language": "javascript",
+        "path": "./snippets/javascript.json"
+      },
+      {
+        "language": "typescript",
+        "path": "./snippets/typescript.json"
+      },
+      {
+        "language": "javascriptreact",
+        "path": "./snippets/javascript.json"
+      },
+      {
+        "language": "typescriptreact",
+        "path": "./snippets/typescript.json"
+      }
+    ]
+  }
+}

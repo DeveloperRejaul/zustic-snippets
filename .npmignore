@@ -1,0 +1,13 @@
+.git
+.gitignore
+.vscode
+.vscode-test
+out
+node_modules
+src
+tsconfig.json
+vsc-extension-quickstart.md
+CHANGELOG.md
+.eslintrc.json
+.prettierrc
+.vscodeignore
