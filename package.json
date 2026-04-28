@@ -3,13 +3,9 @@
   "displayName": "Zustic Snippets",
   "description": "Professional JavaScript and TypeScript code snippets for faster development",
   "version": "1.0.0",
-  "publisher": "DeveloperRejaul",
+  "publisher": "rezaul",
   "scripts": {
-    "vscode:prepublish": "echo 'Ready to publish'",
-    "publish": "vsce publish",
-    "publish:major": "vsce publish major",
-    "publish:minor": "vsce publish minor",
-    "publish:patch": "vsce publish patch"
+    "build":"vsce package"
   },
   "devDependencies": {
     "@vscode/vsce": "^2.24.0"
