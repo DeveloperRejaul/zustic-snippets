@@ -50,7 +50,7 @@ jobs:
         run: vsce package
 
       - name: Publish to VS Code Marketplace
-        if: secrets.VSCE_TOKEN != ''
+        if: github.event_name == 'push' || github.event_name == 'workflow_dispatch'
         run: vsce publish -p ${{ secrets.VSCE_TOKEN }}
 
       - name: Upload VSIX to GitHub Release
