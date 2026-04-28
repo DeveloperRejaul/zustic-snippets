@@ -1,11 +1,17 @@
 {
   "name": "zustic-snippets",
   "displayName": "Zustic Snippets",
-  "description": "Professional JavaScript and TypeScript code snippets for faster development",
-  "version": "1.0.0",
+  "description": "⚡ Lightning-fast Zustic state management snippets for JavaScript & TypeScript",
+  "version": "1.0.1",
   "publisher": "rezaul",
+  "icon": "assets/logo.jpg",
   "scripts": {
-    "build":"vsce package"
+    "vscode:prepublish": "echo 'Ready to publish'",
+    "build": "vsce package",
+    "publish": "vsce publish",
+    "publish:major": "vsce publish major",
+    "publish:minor": "vsce publish minor",
+    "publish:patch": "vsce publish patch"
   },
   "devDependencies": {
     "@vscode/vsce": "^2.24.0"

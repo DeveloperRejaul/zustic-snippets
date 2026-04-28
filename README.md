@@ -1,177 +1,155 @@
 # Zustic Snippets
 
-A professional collection of JavaScript and TypeScript code snippets for Visual Studio Code to boost your development productivity.
+A lightweight and productivity-focused collection of **Zustic store snippets** for **JavaScript, TypeScript, JSX, and TSX** in Visual Studio Code.
+
+Designed to help you quickly scaffold Zustand-like state management using `zustic` with clean and reusable patterns.
+
+---
 
 ## Features
 
-✨ **50+ Comprehensive Snippets**
-- JavaScript snippets for common patterns and operations
-- TypeScript snippets for type-safe development
-- Supports JavaScript, TypeScript, JSX, and TSX
+* **Quick Store Setup** – Create Zustand-style stores instantly
+* **Type-Safe (TypeScript)** – Fully typed store and middleware snippets
+* **Reusable Middleware** – Built-in logger middleware pattern
+* **Smart Prefixes** – Easy-to-remember snippet triggers (`zs`, `zsm`)
+* **Supports JS, JSX, TS, TSX**
 
-🚀 **Easy to Use**
-- Type the snippet prefix and press Tab or Enter to expand
-- Intuitive, memorable prefixes (e.g., `log`, `arrow`, `async`)
-- Fully customizable with placeholder navigation
-
-📋 **Well Organized**
-- Separate snippet sets for JavaScript and TypeScript
-- Snippets for arrays, objects, loops, functions, async operations, and more
-- Type-safe snippets for advanced TypeScript features
+---
 
 ## Available Snippets
 
-### JavaScript Snippets
+### JavaScript / JSX
 
-| Prefix | Description |
-|--------|-------------|
-| `log` | Console log |
-| `err` | Console error |
-| `warn` | Console warn |
-| `table` | Console table |
-| `af` | Arrow function |
-| `aaf` | Async arrow function |
-| `prom` | Promise |
-| `try` | Try catch block |
-| `tryf` | Try catch finally |
-| `for` | For loop |
-| `forof` | For of loop |
-| `forin` | For in loop |
-| `while` | While loop |
-| `if` | If statement |
-| `ifelse` | If else statement |
-| `map` | Array map |
-| `filter` | Array filter |
-| `reduce` | Array reduce |
-| `find` | Array find |
-| `foreach` | Array forEach |
-| `dest` | Object destructuring |
-| `destarray` | Array destructuring |
-| `spread` | Spread operator |
-| `obj` | Object shorthand |
-| `fetchget` | Fetch GET request |
-| `fetchpost` | Fetch POST request |
-| `class` | Class declaration |
-| `constructor` | Constructor |
-| `method` | Class method |
-| `async` | Async function |
-| `await` | Await expression |
-| `export` | Export constant |
-| `exportdef` | Export default |
-| `import` | Import module |
-| `importn` | Import named exports |
-| `template` | Template literal |
-| `ternary` | Ternary operator |
-| `and` | Logical AND |
-| `or` | Logical OR |
+#### `zs` – Zustic Counter Store
 
-### TypeScript Snippets
-
-| Prefix | Description |
-|--------|-------------|
-| `iface` | Interface |
-| `type` | Type alias |
-| `enum` | Enum |
-| `ifacegeneric` | Generic interface |
-| `typegeneric` | Generic type |
-| `funcgeneric` | Generic function |
-| `aftyped` | Typed arrow function |
-| `classt` | Class with types |
-| `union` | Union type |
-| `intersection` | Intersection type |
-| `readonly` | Readonly property |
-| `partial` | Partial utility type |
-| `required` | Required utility type |
-| `record` | Record utility type |
-| `pick` | Pick utility type |
-| `omit` | Omit utility type |
-| `keyof` | Keyof operator |
-| `arrtyped` | Typed array |
-| `objtyped` | Typed object |
-| `paramtype` | Function parameter type |
-| `asynct` | Typed async function |
-| `promt` | Typed Promise |
-| `conditional` | Conditional type |
-| `mapped` | Mapped type |
-| `asconst` | as const assertion |
-| `typeguard` | Type guard function |
-| `discriminated` | Discriminated union |
-| `zs` | Interface Counter Store with TypeScript |
-| `zsm` | Zustic Store with Middleware Logger |
-
-### Zustic-Specific Snippets
-
-#### JavaScript
-- **`zs`** - Zustic counter store with JavaScript
-  ```javascript
-  import { create } from 'zustic';
-  
-  const useCounter = create((set, get) => ({
-    count: 0,
-    inc: () => set((state) => ({ count: state.count + 1 })),
-    dec: () => set({ count: get().count - 1 }),
-    reset: () => set({ count: 0 }),
-  }));
-  ```
-
-- **`zsm`** - Zustic logger middleware
-  ```javascript
-  const logger = (set, get) => (next) => async (partial) => {
-    console.log('Previous state:', get());
-    console.log('Update:', partial);
-    await next(partial);
-    console.log('Updated state:', get());
-  };
-  ```
-
-#### TypeScript
-- **`zs`** - Zustic counter store with TypeScript interface and type-safe implementation
-- **`zsm`** - Zustic middleware logger with TypeScript types and full async support
-
-## Installation
-
-1. Open Visual Studio Code
-2. Go to Extensions (Ctrl+Shift+X / Cmd+Shift+X)
-3. Search for "Zustic Snippets"
-4. Click Install
-
-## Usage
-
-1. Open a JavaScript or TypeScript file
-2. Type a snippet prefix (e.g., `log`)
-3. Press `Tab` or `Enter` to expand
-4. Use `Tab` to navigate through placeholders
-5. Edit as needed
-
-### Example
-
-Start typing `arrow`:
 ```javascript
-const myFunc = (param) => {
-  
+import { create } from 'zustic';
+
+const useCounter = create((set, get) => ({
+  count: 0,
+  inc: () => set((state) => ({ count: state.count + 1 })),
+  dec: () => set({ count: get().count - 1 }),
+  reset: () => set({ count: 0 }),
+}));
+```
+
+---
+
+#### `zsm` – Zustic Logger Middleware
+
+```javascript
+import { type Middleware } from 'zustic';
+
+const logger = (set, get) => (next) => async (partial) => {
+  console.log('Previous state:', get());
+  console.log('Update:', partial);
+
+  await next(partial);
+
+  console.log('Updated state:', get());
 };
 ```
 
-The cursor will be positioned for you to customize the function.
+---
+
+### TypeScript / TSX
+
+#### `zs` – Typed Counter Store
+
+```typescript
+import { create } from 'zustic';
+
+type CounterStore = {
+  count: number;
+  inc: () => void;
+  dec: () => void;
+  reset: () => void;
+};
+
+const useCounter = create<CounterStore>((set, get) => ({
+  count: 0,
+  inc: () => set((state) => ({ count: state.count + 1 })),
+  dec: () => set({ count: get().count - 1 }),
+  reset: () => set({ count: 0 }),
+}));
+```
+
+---
+
+#### `zsm` – Typed Logger Middleware
+
+```typescript
+import { type Middleware } from 'zustic';
+
+type AppState = {
+  count: number;
+  name: string;
+};
+
+const logger: Middleware<AppState> = (set, get) => (next) => async (partial) => {
+  console.log('Previous state:', get());
+  console.log('Update:', partial);
+
+  await next(partial);
+
+  console.log('Updated state:', get());
+};
+```
+
+---
+
+## Usage
+
+1. Open a `.js`, `.jsx`, `.ts`, or `.tsx` file
+2. Type a snippet prefix:
+
+   * `zs` → create store
+   * `zsm` → logger middleware
+3. Press **Tab** or **Enter** to expand
+4. Use **Tab** to navigate placeholders
+
+---
+
+## Zustic Documentation
+
+To learn more about the library behind these snippets, check the official docs:
+
+[Zustic Official Documentation](https://zustic.github.io/?utm_source=chatgpt.com)
+
+Zustic is a **minimal state management library (~500B, zero dependencies)** with a simple API using `create`, `set`, and `get`, making it fast and easy to use in React projects. ([zustic.github.io][1])
+
+---
+
+## Why Zustic Snippets?
+
+* Saves time writing repetitive store logic
+* Encourages clean and consistent patterns
+* Works seamlessly with modern React setups
+* Helps beginners structure state properly
+
+---
+
+## Installation
+
+1. Open **VS Code**
+2. Go to Extensions (`Ctrl + Shift + X`)
+3. Search for **Zustic Snippets**
+4. Click **Install**
+
+---
 
 ## Contributing
 
-Found a bug or have a suggestion? Open an issue on [GitHub](https://github.com/DeveloperRejaul/zustic-snippets/issues).
+Have ideas or improvements?
 
-## Publishing & Releases
+* Open an issue
+* Suggest new snippets
+* Improve existing patterns
 
-This extension uses GitHub Actions for automated publishing to the VS Code Marketplace.
-
-- **Automated Releases**: Push tags matching `v*.*.*` pattern to trigger automatic publishing
-- **Manual Releases**: Use GitHub Actions workflow dispatch to create releases
-- **Release Notes**: Automatically generated from commit history
-
-See [PUBLISHING.md](./PUBLISHING.md) for detailed publishing instructions and [RELEASE.md](./RELEASE.md) for release management guidelines.
+---
 
 ## License
 
-MIT - see LICENSE file for details
+MIT License
 
-## Changelog
-
-See [CHANGELOG.md](./CHANGELOG.md) for version history.
+---
