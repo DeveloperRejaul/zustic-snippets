@@ -96,6 +96,37 @@ A professional collection of JavaScript and TypeScript code snippets for Visual 
 | `asconst` | as const assertion |
 | `typeguard` | Type guard function |
 | `discriminated` | Discriminated union |
+| `zs` | Interface Counter Store with TypeScript |
+| `zsm` | Zustic Store with Middleware Logger |
+
+### Zustic-Specific Snippets
+
+#### JavaScript
+- **`zs`** - Zustic counter store with JavaScript
+  ```javascript
+  import { create } from 'zustic';
+  
+  const useCounter = create((set, get) => ({
+    count: 0,
+    inc: () => set((state) => ({ count: state.count + 1 })),
+    dec: () => set({ count: get().count - 1 }),
+    reset: () => set({ count: 0 }),
+  }));
+  ```
+
+- **`zsm`** - Zustic logger middleware
+  ```javascript
+  const logger = (set, get) => (next) => async (partial) => {
+    console.log('Previous state:', get());
+    console.log('Update:', partial);
+    await next(partial);
+    console.log('Updated state:', get());
+  };
+  ```
+
+#### TypeScript
+- **`zs`** - Zustic counter store with TypeScript interface and type-safe implementation
+- **`zsm`** - Zustic middleware logger with TypeScript types and full async support
 
 ## Installation
 
@@ -125,7 +156,17 @@ The cursor will be positioned for you to customize the function.
 
 ## Contributing
 
-Found a bug or have a suggestion? Open an issue on [GitHub](https://github.com/yourusername/zustic-snippets/issues).
+Found a bug or have a suggestion? Open an issue on [GitHub](https://github.com/DeveloperRejaul/zustic-snippets/issues).
+
+## Publishing & Releases
+
+This extension uses GitHub Actions for automated publishing to the VS Code Marketplace.
+
+- **Automated Releases**: Push tags matching `v*.*.*` pattern to trigger automatic publishing
+- **Manual Releases**: Use GitHub Actions workflow dispatch to create releases
+- **Release Notes**: Automatically generated from commit history
+
+See [PUBLISHING.md](./PUBLISHING.md) for detailed publishing instructions and [RELEASE.md](./RELEASE.md) for release management guidelines.
 
 ## License
 
