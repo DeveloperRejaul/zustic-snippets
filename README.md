@@ -18,10 +18,33 @@ Designed to help you quickly scaffold Zustand-like state management using `zusti
 
 ## Available Snippets
 
-### JavaScript / JSX
+### Store Management
 
-#### `zs` – Zustic Counter Store
+| Prefix | Description | Use Case |
+|--------|-------------|----------|
+| `zs` | Zustic Counter Store | Create a basic state store with increment, decrement, reset actions |
+| `zsm` | Zustic Logger Middleware | Add logging to track state changes before and after updates |
 
+### API & Query Management
+
+| Prefix | Description | Use Case |
+|--------|-------------|----------|
+| `zbq` | Zustic Base Query | Setup a reusable query class with headers and fetch logic |
+| `zq` | Zustic Query API | Create endpoints for queries and mutations with caching |
+
+### Commands
+
+| Command | Shortcut | Description |
+|---------|----------|-------------|
+| `Zustic: Create VS Code Configuration` | `Ctrl+Shift+P` then type command | Creates `.vscode/settings.json` with auto-save, formatter, and ESLint settings |
+
+---
+
+## Snippet Details
+
+### 1. `zs` – Counter Store
+
+**JavaScript:**
 ```javascript
 import { create } from 'zustic';
 
@@ -33,29 +56,7 @@ const useCounter = create((set, get) => ({
 }));
 ```
 
----
-
-#### `zsm` – Zustic Logger Middleware
-
-```javascript
-import { type Middleware } from 'zustic';
-
-const logger = (set, get) => (next) => async (partial) => {
-  console.log('Previous state:', get());
-  console.log('Update:', partial);
-
-  await next(partial);
-
-  console.log('Updated state:', get());
-};
-```
-
----
-
-### TypeScript / TSX
-
-#### `zs` – Typed Counter Store
-
+**TypeScript:**
 ```typescript
 import { create } from 'zustic';
 
@@ -76,8 +77,23 @@ const useCounter = create<CounterStore>((set, get) => ({
 
 ---
 
-#### `zsm` – Typed Logger Middleware
+### 2. `zsm` – Logger Middleware
 
+**JavaScript:**
+```javascript
+import { type Middleware } from 'zustic';
+
+const logger = (set, get) => (next) => async (partial) => {
+  console.log('Previous state:', get());
+  console.log('Update:', partial);
+
+  await next(partial);
+
+  console.log('Updated state:', get());
+};
+```
+
+**TypeScript:**
 ```typescript
 import { type Middleware } from 'zustic';
 
@@ -98,6 +114,53 @@ const logger: Middleware<AppState> = (set, get) => (next) => async (partial) => 
 
 ---
 
+### 3. `zbq` – Base Query
+
+Setup a query class with built-in fetch, headers, and timeout handling:
+```javascript
+class Query {
+  getHeader(args) {
+    const headers = {
+      'Content-Type': 'application/json',
+      Accept: 'application/json',
+      ...(args?.headers || {})
+    };
+    return headers;
+  }
+
+  baseQuery = async (args) => {
+    const timeout = 60000;
+    const baseUrl = 'https://api.example.com';
+    // ... fetch logic
+  };
+}
+```
+
+---
+
+### 4. `zq` – Query API
+
+Create API endpoints with queries and mutations:
+```javascript
+import { createApi } from 'zustic/query';
+import query from 'base_query_path';
+
+const api = createApi({
+  baseQuery: query.baseQuery,
+  cacheTimeout: 5 * 60 * 1000,
+  endpoints: (builder) => ({
+    getUsers: builder.query({ query: () => '/users' }),
+    createUser: builder.mutation({
+      query: (user) => ({ url: '/users', method: 'POST', body: user })
+    })
+  })
+});
+
+export const { useGetUsersQuery, useCreateUserMutation } = api;
+```
+
+---
+
 ## Usage
 
 1. Open a `.js`, `.jsx`, `.ts`, or `.tsx` file
@@ -105,8 +168,29 @@ const logger: Middleware<AppState> = (set, get) => (next) => async (partial) => 
 
    * `zs` → create store
    * `zsm` → logger middleware
+   * `zbq` → base query class
+   * `zq` → query API endpoints
 3. Press **Tab** or **Enter** to expand
-4. Use **Tab** to navigate placeholders
+4. Use **Tab** to navigate placeholders and customize code
+
+---
+
+## Commands
+
+### `Zustic: Create VS Code Configuration`
+
+Automatically create a `.vscode/settings.json` file in your workspace with recommended Zustic project settings.
+
+**How to use:**
+1. Open the Command Palette (`Ctrl+Shift+P` / `Cmd+Shift+P`)
+2. Type `Zustic: Create VS Code Configuration`
+3. Press **Enter**
+
+**What it does:**
+- Creates `.vscode/` directory if it doesn't exist
+- Sets up auto-save, format-on-save, and ESLint configuration
+- Applies formatter (Prettier) to JavaScript and TypeScript files
+- Configures code actions for auto-fixing
 
 ---
 
