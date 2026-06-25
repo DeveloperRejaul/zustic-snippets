@@ -1,5 +1,8 @@
 import notifee from '@notifee/react-native'
-import { type ShowNotificationParams } from "types";
+interface ShowNotificationParams {
+  title:string;
+  body:string
+}
 
 export  const channelId = "miscellaneous-channel"
 export function showNotification ({title, body}:ShowNotificationParams) {

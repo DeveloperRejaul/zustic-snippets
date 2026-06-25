@@ -28,15 +28,6 @@ class Query {
 
     headers.set('x-access-token', token || "");
     headers.set('Authorization', `Bearer ${token}`);
-    headers.set('language', storage.getItem('language') || "bn");
-    headers.set('latitude', storage.getItem('latitude') || '');
-    headers.set('longitude', storage.getItem('longitude') || '');
-    headers.set('division-id', storage.getItem('division_id') || '');
-    headers.set('district-id', storage.getItem('district_id') || '');
-    headers.set('upazila-id', storage.getItem('upazila_id') || '' );
-
-    headers.set('d-district-id',  storage.getItem('d-district_id') || "" );
-    headers.set('d-upazila-id',  storage.getItem('d-upazila_id') || "" );
     //     version_name: versionName,
     //     version_code: versionCode,
     return headers;

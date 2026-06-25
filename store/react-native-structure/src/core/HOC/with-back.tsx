@@ -1,11 +1,10 @@
 import React, { type ComponentType, useEffect } from "react";
 import { BackHandler } from "react-native";
 import { useTranslation } from "react-i18next";
-import { type RootStackParamsList } from "types";
 import { bottomSheet } from "../components/BottomSheet";
 import { router } from "../navigation/router";
 import { showNativeAlert } from "../utils/alert";
-import { speakOff } from "../utils/speak";
+import { RootStackParamsList } from "../navigation/types";
 
 export interface WithBackOptions {
   screens: (keyof RootStackParamsList)[]
@@ -25,7 +24,6 @@ export default function withBack<P extends object>(
         const screen = router.current();
         if(screen && screens?.includes(screen as any)) {
           if(bottomSheet.isOpen) {
-            speakOff()
             bottomSheet.hide()
             return true
           }
@@ -36,7 +34,6 @@ export default function withBack<P extends object>(
               if(router.canBack()) {
                 router.withPop()
               }else {
-                speakOff()
                 BackHandler.exitApp();
               }
             },
@@ -45,7 +42,6 @@ export default function withBack<P extends object>(
           if(router.canBack()) {
             router.withPop()
           }else {
-            speakOff()
             if(bottomSheet.isOpen) {
               bottomSheet.hide()
               return true
