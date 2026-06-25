@@ -2,19 +2,25 @@
   "name": "zustic-snippets",
   "displayName": "Zustic Snippets",
   "description": "⚡ Lightning-fast Zustic state management snippets for JavaScript & TypeScript",
-  "version": "1.0.5",
+  "version": "1.0.6",
   "author": "rezaul",
   "publisher": "rezaul",
   "icon": "assets/logo.jpg",
   "main": "./extension.js",
   "scripts": {
-    "vscode:prepublish": "echo 'Ready to publish'",
     "build": "vsce package"
   },
   "devDependencies": {
-    "@vscode/vsce": "^2.24.0"
+    "@types/react": "^19.2.17",
+    "@vscode/vsce": "^2.24.0",
+    "react": "^19.2.7",
+    "react-native": "^0.86.0",
+    "react-native-gesture-handler": "^3.0.1",
+    "react-native-reanimated": "^4.4.1",
+    "react-native-safe-area-context": "^5.8.0",
+    "react-native-svg": "^15.15.5",
+    "zustic": "^1.1.6"
   },
-
   "license": "MIT",
   "repository": {
     "type": "git",
@@ -35,7 +41,8 @@
     "vscode": "^1.100.0"
   },
   "activationEvents": [
-    "onCommand:myExtension.createConfig"
+    "onCommand:myExtension.createConfig",
+    "onCommand:myExtension.reactNativeStructure"
   ],
   "categories": [
     "Snippets"
@@ -63,6 +70,10 @@
       {
         "command": "myExtension.createConfig",
         "title": "Zustic: Create VS Code Configuration"
+      },
+      {
+        "command": "myExtension.reactNativeStructure",
+        "title": "Zustic: Create React native structure"
       }
     ]
   }
