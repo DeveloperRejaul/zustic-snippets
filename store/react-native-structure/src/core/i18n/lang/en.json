@@ -1,20 +1,5 @@
 {
-  "internet_status":"No Internet",
-  "server_status":"Server Problem",
-  "server_problem_message":"Please check the app later.",
-  "internet_problem_message":"Please! Check your internet connection and try again",
-  "internet_btn_text":"Connect to Internet",
-  "copy_number":"Copy Number",
-  "call_number":"Call Number",
-  "location": {
-    "searching": "Searching for your location...",
-    "activity_null": "Location services are turned off. Please enable location on your device.",
-    "permission_denied": "Location permission is denied. Please allow location access for the app.",
-    "timeout": "Taking too long to fetch location. Please try again with a better network.",
-    "position_unavailable": "Unable to determine your location. Please ensure GPS/location is turned on.",
-    "gps_off": "Location services are off. Please turn on GPS and try again.",
-    "unknown_error": "Unable to get location. Please try again."
-  }
+  "hello":"hello"
 }
 
 

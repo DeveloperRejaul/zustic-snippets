@@ -6,19 +6,6 @@ export type StorageKey =
   "language" 
   |'user_token' 
   |'user'
-  |'voice' 
-  |'latitude' 
-  |'longitude'
-  |`order`
-  |`division_id`
-  |`district_id`
-  |`upazila_id`
-  |`location_id`
-  |"d-district_id"
-  |"d-upazila_id"
-  |"is-prone-number-verified"
-  |"unique_id"
-  |"phone"
   
 export default class storage {
   static getItem (key:StorageKey ) {
