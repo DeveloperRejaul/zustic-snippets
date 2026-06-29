@@ -1,5 +1,4 @@
-import i18nNext from "../i18n/i18";
-import { type TranslationKey } from "../i18n/types";
+import { i18n } from "./i18";
 
 export const toBanglaNumber = (number: number | string) => {
   const banglaDigits = ["০", "১", "২", "৩", "৪", "৫", "৬", "৭", "৮", "৯"];
@@ -12,7 +11,7 @@ export const toBanglaNumber = (number: number | string) => {
  
 
 export const i18Number = (num:number | string) =>  {
-  const len = i18nNext.language;
+  const len = i18n.lan;
   if(!num?.toString()) {
     return ''
   }
@@ -36,8 +35,4 @@ export const i18Number = (num:number | string) =>  {
       return digit;
     }
   }).join('');
-}
-
-export function t(key:TranslationKey) {
-  return i18nNext.t(key)
 }

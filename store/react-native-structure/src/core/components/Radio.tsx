@@ -1,6 +1,7 @@
 
  
 import { createContext, useContext } from 'react';
+import React from 'react'
 import { StyleSheet, Text, type TextStyle, TouchableOpacity, View, type ViewProps, type ViewStyle } from 'react-native';
 import useQueryState from '../hooks/useQueryState';
 

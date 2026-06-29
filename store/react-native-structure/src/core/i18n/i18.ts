@@ -1,6 +1,5 @@
 
 import { createI18n } from 'zustic/i18n';
-
 import bn from './lang/bn.json' 
 import en from './lang/en.json' 
 

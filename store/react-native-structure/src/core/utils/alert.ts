@@ -1,5 +1,5 @@
 import { Alert } from "react-native";
-import storage from "../storage/storage";
+import { i18n } from "../i18n/i18";
 
 interface IShowNativeAlertParams {
     title:string;
@@ -9,14 +9,13 @@ interface IShowNativeAlertParams {
 
 
 export function showNativeAlert({title, body, onOk}:IShowNativeAlertParams) {
-  const lan:any = storage.getItem('language') || "bn" 
   Alert.alert(title, body, [{
-    text: lan === "bn" ? "না" : "No",
+    text: i18n.t('no'),
     onPress: () => {},
     style: "cancel",
   },
   {
-    text: lan === "bn" ? "হ্যাঁ" : "Yes",
+    text: i18n.t('yes'),
     onPress: () => {
       onOk?.()
     },

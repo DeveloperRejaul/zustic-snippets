@@ -1,4 +1,5 @@
   
+import React from 'react';
 import {Text, type ViewStyle, StyleSheet, type TextStyle, TouchableOpacity ,ActivityIndicator, type TouchableOpacityProps} from 'react-native';
 import { colors } from '../constance/colors';
 import { typography } from '../constance/typography';
@@ -56,12 +57,12 @@ export default function Button(props : IButton) {
       <ActivityIndicator
         style={{opacity: isLoading ? 1: 0, position:"absolute", left:0, right:0, top:0, bottom:0}}
         size='small'
-        color={colors.weight}
+        color={colors.white}
       />
       <Text 
         style={[
           {opacity:isLoading ? 0: 1 },
-          typography.btnText, 
+          typography.text_md_medium, 
           textStyle,
           variant === 'link' && { textDecorationLine: 'underline' }
         ]}>

@@ -1,4 +1,5 @@
 
+import React from "react";
 import { View, type ViewProps } from "react-native";
 
 export interface IDivider extends ViewProps {

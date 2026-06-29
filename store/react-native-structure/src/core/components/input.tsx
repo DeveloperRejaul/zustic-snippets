@@ -1,12 +1,12 @@
 import React, { useEffect, useRef } from 'react'
 import { StyleSheet, Text, TextInput, type TextInputProps, TouchableOpacity, View, type ViewStyle } from 'react-native'
 import { bottomSheet } from './BottomSheet';
+import ArrowRightIos from '../assets/icons/ArrowRightIos';
 import { colors } from '../constance/colors';
 import { GStyles } from '../constance/styles';
 import { typography } from '../constance/typography';
 import SelectBottomSheet from './bottom-sheet/select-bottom-sheet';
 import useQueryState from '../hooks/useQueryState';
-import ArrowRightIos from '../assets/icons/ArrowRightIos';
 
 interface InputProps extends TextInputProps {
     variant?:"password" | "text" | 'textarea' | "select",
@@ -116,7 +116,7 @@ export default function Input(props: InputProps) {
 
 const styles = StyleSheet.create({
   container:{
-    backgroundColor: colors.weight,
+    backgroundColor: colors.white,
     padding: 10,
     borderRadius: 10,
   },

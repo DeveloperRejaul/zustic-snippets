@@ -1,6 +1,4 @@
 import { StyleSheet } from "react-native";
-import { PADDING_HORIZONTAL } from "./size";
-import { typography } from "./typography";
 
 export const GStyles = StyleSheet.create({
   row:{
@@ -45,5 +43,5 @@ export const GStyles = StyleSheet.create({
   },
   heightFull:{
     height:"100%"
-  },
+  }
 })

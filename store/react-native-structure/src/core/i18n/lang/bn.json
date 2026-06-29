@@ -1,3 +1,13 @@
 {
-   "hello":"helloas"
+   "hello_world":"হ্যালো বিশ্ব",
+   "do_you_want_to_go_back":"আপনি কি ফিরে যেতে চান ?",
+   "are_you_sure":"আপনি কি নিশ্চিত?",
+   "yes":"হ্যাঁ",
+   "no":"না",
+   "today":"আজ",
+   "day_ago":"দিন আগে",
+   "month_ago":"মাস আগে",
+   "pm":"পিএম",
+   "am":"এএম",
+   "no_data_found":"কোনো তথ্য পাওয়া যায়নি"
 }

@@ -1,9 +1,9 @@
 import React, { type FC, useState } from 'react'
 import {StyleSheet,Text,type TextStyle, TouchableOpacity, View, type ViewProps, type ViewStyle } from 'react-native'
-import { colors } from '../constance/colors'
-import { PADDING_HORIZONTAL, WIDTH } from '../constance/size'
-import { GStyles } from '../constance/styles'
-import { typography } from '../constance/typography'
+import { colors } from '@src/core/constance/colors'
+import { PADDING_HORIZONTAL, WIDTH } from '@src/core/constance/size'
+import { GStyles } from '@src/core/constance/styles'
+import { typography } from '@src/core/constance/typography'
 
 interface TabProps {
   pages: {

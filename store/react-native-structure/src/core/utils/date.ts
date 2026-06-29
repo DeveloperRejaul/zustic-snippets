@@ -1,4 +1,4 @@
-import { i18Number } from "./i18";
+import { i18Number } from "../i18n/i18nNumber";
 
 /**
  * Returns date formatted as "DD-MM-YYYY".

@@ -85,7 +85,7 @@ const styles = StyleSheet.create({
     backgroundColor: '#fff',
   },
   deleteContainer: {
-    ...StyleSheet.absoluteFillObject,
+    ...StyleSheet.absoluteFill,
     justifyContent: 'center',
     alignItems: 'flex-end',
     backgroundColor: 'red',

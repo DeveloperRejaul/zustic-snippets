@@ -1,7 +1,7 @@
 import React, { useImperativeHandle, useLayoutEffect } from 'react';
 import type { FlatListProps } from 'react-native';
 import { FlatList, ActivityIndicator, StyleSheet, Text, RefreshControl, View } from 'react-native';
-import { useTranslation } from 'react-i18next';
+import { useTranslation } from '../i18n/i18';
 
 export type FlashListRef = {
   onRefresh: () => void;
@@ -73,7 +73,7 @@ export default function FlashList(props: IListShowProps) {
       keyExtractor={(item, index) => `${item?.id}-${index}`}
       onEndReachedThreshold={0.5}
       contentContainerStyle={styles.container}
-      ListEmptyComponent={(isLoading || isFetching) ? <Loading /> : <Text style={styles.empty}>{t('common.no_information_found')}</Text>}
+      ListEmptyComponent={(isLoading || isFetching) ? <Loading /> : <Text style={styles.empty}>{t('no_data_found')}</Text>}
       ListFooterComponent={(res.isLoading || res.isFetching) ? <ActivityIndicator size="small" color="#000" /> : null}
       {...extra}
     />

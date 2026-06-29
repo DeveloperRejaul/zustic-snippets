@@ -5,9 +5,9 @@ import {
 import { type RootStackParamsList } from './types';
 import { bottomSheet } from '../components/BottomSheet';
 import { BACK_PERMISSION_SCREENS } from '../constance/back-permission-screens';
-import storage from '../storage/storage';
+import { i18n } from '../i18n/i18';
 import { showNativeAlert } from '../utils/alert';
-import { speakOff } from '../utils/speak';
+
 
 export type RouteType = keyof RootStackParamsList
 
@@ -16,7 +16,6 @@ export const navigationRef = createNavigationContainerRef();
 export class router {
   static push<RouteName extends keyof RootStackParamsList>(name: RouteName, params?: RootStackParamsList[RouteName]) {
     if (navigationRef.isReady()) {
-      speakOff()
       navigationRef.dispatch(StackActions.push(name, params));
     }
   }
@@ -29,10 +28,9 @@ export class router {
 
   static pop() {
     if(navigationRef.isReady() && navigationRef.canGoBack() && BACK_PERMISSION_SCREENS.includes(this.current() as any)){
-      const lan = storage.getItem('language') || 'bn'
       showNativeAlert({
-        title: lan === 'en' ? "Are you sure?" : "আপনি কি নিশ্চিত?",
-        body: lan === 'en' ? `Do you want to go back?` : `আপনি কি ফিরে যেতে চান ?`,
+        title: i18n.t('are_you_sure'),
+        body: i18n.t('do_you_want_to_go_back'),
         onOk() {
           router.withPop()        
         },
@@ -43,7 +41,6 @@ export class router {
   }
 
   static withPop () {
-    speakOff()
     if(bottomSheet.isOpen){
       bottomSheet.hide()
       return

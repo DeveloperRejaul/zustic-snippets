@@ -1,6 +1,13 @@
 {
- "hello":"hello"
+ "hello_world":"Hello world",
+ "do_you_want_to_go_back":"Do you want to go back?",
+ "are_you_sure":"Are you sure?",
+ "yes":"Yes",
+ "no":"No",
+ "today":"Today",
+ "day_ago":"day ago",
+ "month_ago":"Month ago",
+ "pm":"PM",
+ "am":"AM",
+ "no_data_found":"No data found"
 }
-
-
-

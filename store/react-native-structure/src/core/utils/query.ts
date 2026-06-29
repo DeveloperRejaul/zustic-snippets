@@ -1,7 +1,7 @@
 import { fetch as ft } from '@react-native-community/netinfo';
-import i18nNext from '../i18n/i18';
+import { showToast } from './toast';
+import { i18n } from '../i18n/i18';
 import storage from '../storage/storage';
-import { showToast } from '../utils/toast';
 
 export type Error = {
   status: number;
@@ -28,8 +28,7 @@ class Query {
 
     headers.set('x-access-token', token || "");
     headers.set('Authorization', `Bearer ${token}`);
-    //     version_name: versionName,
-    //     version_code: versionCode,
+
     return headers;
   }
 
@@ -51,7 +50,7 @@ class Query {
   baseQuery = (params:Options)=> async (args:any  /* , api, extraOptions  */)=> {
     /* const { signal, dispatch, getState } = api; */
     const {
-      apiType = 'REST',
+      // apiType = 'REST',
       timeout = 60000, //60-second timeout
       baseUrl,
       engine = "RTK"
@@ -75,7 +74,7 @@ class Query {
       const status = await ft()
       if(!status.isConnected){
         clearTimeout(timeoutId);
-        showToast(i18nNext.t('internet_status'))
+        showToast(i18n.t('hello'))
         return this.error({message:"net work not Available", status: 404} as Error);
       }
       

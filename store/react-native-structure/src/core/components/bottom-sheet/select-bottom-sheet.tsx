@@ -1,10 +1,10 @@
+import React from 'react';
 import { ScrollView, StyleSheet, Text, type TextStyle, TouchableOpacity, type ViewStyle, } from 'react-native'
 import CircleSelectIcon from '../../assets/icons/tick-circle';
-
-import { HEIGHT } from '../../constance/size';
-import { bottomSheet } from '../BottomSheet';
-import { s } from '../../utils/size';
 import CircleUnSelectIcon from '../../assets/icons/tick-circle_un_select';
+import { HEIGHT } from '../../constance/size';
+import { s } from '../../utils/size';
+import { bottomSheet } from '../BottomSheet';
 
 export interface SelectBottomSheetProps {
   active?: number | string,

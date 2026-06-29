@@ -1,3 +1,4 @@
+import React from 'react';
 import { Pressable, type ViewProps, type ViewStyle } from 'react-native';
 import CheckBoxCheckIcon from '../assets/icons/check-box-check';
 import useQueryState from '../hooks/useQueryState';

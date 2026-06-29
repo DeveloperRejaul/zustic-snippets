@@ -1,3 +1,6 @@
+import { i18n } from "../i18n/i18";
+import { i18Number } from "../i18n/i18nNumber";
+
 /**
  * Returns a human-readable relative time string (Today, X days ago, X months ago)
  * based on the given date string.
@@ -10,43 +13,24 @@
  * - "X day(s) ago" / "X দিন আগে" if less than 31 days
  * - "X month(s) ago" / "X মাস আগে" if 31 days or more
  */
-export const getRelativeTime = (createdAt: string, lang: string): string => {
+export const getRelativeTime = (createdAt: string): string => {
   const createdDate = new Date(createdAt);
   const today = new Date();
 
   // Convert to UTC midnight
-  const createdUTC = Date.UTC(
-    createdDate.getUTCFullYear(),
-    createdDate.getUTCMonth(),
-    createdDate.getUTCDate()
-  );
-  const todayUTC = Date.UTC(
-    today.getUTCFullYear(),
-    today.getUTCMonth(),
-    today.getUTCDate()
-  );
+  const createdUTC = Date.UTC(createdDate.getUTCFullYear(),createdDate.getUTCMonth(),createdDate.getUTCDate());
+  const todayUTC = Date.UTC(today.getUTCFullYear(),today.getUTCMonth(),today.getUTCDate());
 
-  const diffInDays = Math.floor(
-    (todayUTC - createdUTC) / (1000 * 60 * 60 * 24)
-  );
-
+  const diffInDays = Math.floor((todayUTC - createdUTC) / (1000 * 60 * 60 * 24));
   if (diffInDays === 0) {
-    return lang === "bn" ? "আজ" : "Today";
+    return i18n.t('today');
   } else if (diffInDays > 0 && diffInDays < 31) {
-    return lang === "bn"
-      ? `${diffInDays} দিন আগে`
-      : `${diffInDays} day${diffInDays > 1 ? "s" : ""} ago`;
+    return `${diffInDays} ${i18n.t('day_ago')}`;
   } else if (diffInDays >= 31) {
-    const monthDiff =
-        (today.getUTCFullYear() - createdDate.getUTCFullYear()) * 12 +
-        (today.getUTCMonth() - createdDate.getUTCMonth());
-
-    return lang === "bn"
-      ? `${monthDiff} মাস আগে`
-      : `${monthDiff} month${monthDiff > 1 ? "s" : ""} ago`;
+    const monthDiff = (today.getUTCFullYear() - createdDate.getUTCFullYear()) * 12 + (today.getUTCMonth() - createdDate.getUTCMonth());
+    return `${monthDiff} ${i18n.t('month_ago')}`
   } else {
-    // Future date fallback
-    return lang === "bn" ? "আজ" : "Today";
+    return i18n.t('today');
   }
 };
 
@@ -72,12 +56,7 @@ export const getRelativeTime = (createdAt: string, lang: string): string => {
  */
 const normalize = (v: string) => v.includes('Z') ? v : v.replace(' ', 'T') + 'Z'
 
-export function isWithinTimeMs(
-  dateString: string = "",
-  nowTime: string = "",
-  timeMs: number
-): boolean {
-
+export function isWithinTimeMs( dateString: string = "", nowTime: string = "",timeMs: number): boolean {
   const inputTimeMs = new Date(normalize(dateString)).getTime()
   const nowTimeMs = new Date(normalize(nowTime)).getTime()
 
@@ -102,11 +81,11 @@ export const getTime = (dateString: string, is24Hour: boolean = false): string =
   const minutes = date.getMinutes();
 
   if (is24Hour) {
-    return `${hours.toString().padStart(2, "0")}:${minutes.toString().padStart(2, "0")}`;
+    return `${i18Number(hours.toString().padStart(2, "0"))}:${i18Number(minutes.toString().padStart(2, "0"))}`;
   }
 
-  const period = hours >= 12 ? "PM" : "AM";
+  const period = hours >= 12 ? i18n.t('pm') :  i18n.t('am');
   const formattedHour = hours % 12 || 12;
 
-  return `${formattedHour}:${minutes.toString().padStart(2, "0")} ${period}`;
+  return `${i18Number(formattedHour)}:${i18Number(minutes.toString().padStart(2, "0"))} ${period}`;
 };

@@ -1,4 +1,5 @@
 import { StyleSheet } from "react-native";
+import { fonts } from "./fonts";
 import { s } from "../utils/size";
 
 const base = StyleSheet.create({
@@ -60,73 +61,26 @@ const base = StyleSheet.create({
 })
 
 export const typography = StyleSheet.create({
-  titleLarge: {
-    color: "#000",
-    fontSize: s(20),
-    fontWeight: "500",
-  },
-  titleMedium :{
-    color: "#344054",
-    fontSize: s(16),
-    fontWeight: "500",
-  },
-  titleSmall :{
-    color: "#344054",
-    fontSize: s(12),
-    fontWeight: "500",
-  },
-  textLarge:{
-    color: "#000",
-    fontSize: s(15),
-    fontWeight: "400",
-  },
-  textMedium:{
-    color: "#000",
-    fontSize: s(13),
-    fontWeight: "400",
-  },
-  text:{
-    color: "#000",
-    fontSize: s(11),
-    fontWeight: "400",
-  },
-  textMute:{
-    color: "#00000078",
-    fontSize: s(11),
-    fontWeight: "400",
-  },
-  btnText: {
-    color: "#fff",
-    fontSize: s(13),
-    fontWeight: "bold",
-  },
-  linkText:{
-    fontWeight: '400',
-    fontSize: s(12),
-    color:"#2E90FA"
-  },
-
-  // new typography styles
   title_2xl_regular:{
     ...base.title_2xl,
-    fontWeight:"400",
+    fontFamily: fonts.poppinsRegular
   },
   title_2xl_medium:{
     ...base.title_2xl,
-    fontWeight:"500",
+    fontFamily: fonts.poppinsMedium
   },
   title_2xl_semibold:{
     ...base.title_2xl,
-    fontWeight:"600",
+    fontFamily: fonts.poppinsSemiBold
   },
   title_2xl_bold:{
     ...base.title_2xl,
-    fontWeight:"700",
+    fontFamily:fonts.poppinsBold
   },
 
   title_xl_regular:{
     ...base.title_xl,
-    fontWeight:"400",
+    fontFamily: fonts.poppinsRegular
   },
   title_xl_medium:{
     ...base.title_xl,
@@ -134,163 +88,163 @@ export const typography = StyleSheet.create({
   },
   title_xl_semibold:{
     ...base.title_xl,
-    fontWeight:"600",
+    fontFamily: fonts.poppinsSemiBold
   },
   title_xl_bold:{
     ...base.title_xl,
-    fontWeight:"700",
+    fontFamily: fonts.poppinsBold
   },
 
   title_lg_regular:{
     ...base.title_lg,
-    fontWeight:"400",
+    fontFamily: fonts.poppinsRegular
   },
   title_lg_medium:{
     ...base.title_lg,
-    fontWeight:"500",
+    fontFamily: fonts.poppinsMedium
   },
   title_lg_semibold:{
     ...base.title_lg,
-    fontWeight:"600",
+    fontFamily: fonts.poppinsSemiBold
   },
   title_lg_bold:{
     ...base.title_lg,
-    fontWeight:"700",
+    fontFamily: fonts.poppinsBold
   },
 
   title_md_regular:{
     ...base.title_md,
-    fontWeight:"400",
+    fontFamily: fonts.poppinsRegular
   },
   title_md_medium:{
     ...base.title_md,
-    fontWeight:"500",
+    fontFamily: fonts.poppinsMedium
   },
   title_md_semibold:{
     ...base.title_md,
-    fontWeight:"600",
+    fontFamily: fonts.poppinsSemiBold
   },
   title_md_bold:{
     ...base.title_md,
-    fontWeight:"700",
+    fontFamily: fonts.poppinsBold
   },
 
   title_sm_regular:{
     ...base.title_sm,
-    fontWeight:"400",
+    fontFamily: fonts.poppinsRegular
   },
   title_sm_medium:{
     ...base.title_sm,
-    fontWeight:"500",
+    fontFamily: fonts.poppinsMedium
   },
   title_sm_semibold:{
     ...base.title_sm,
-    fontWeight:"600",
+    fontFamily: fonts.poppinsSemiBold
   },
   title_sm_bold:{
     ...base.title_sm,
-    fontWeight:"700",
+    fontFamily: fonts.poppinsBold
   },
 
   title_xs_regular:{
     ...base.title_xs,
-    fontWeight:"400",
+    fontFamily: fonts.poppinsRegular
   },
   title_xs_medium:{
     ...base.title_xs,
-    fontWeight:"500",
+    fontFamily: fonts.poppinsMedium
   },
   title_xs_semibold:{
     ...base.title_xs,
-    fontWeight:"600",
+    fontFamily: fonts.poppinsSemiBold
   },
   title_xs_bold:{
     ...base.title_xs,
-    fontWeight:"700",
+    fontFamily: fonts.poppinsBold
   },
 
   text_xl_regular:{
     ...base.text_xl,
-    fontWeight:"400",
+    fontFamily: fonts.poppinsRegular
   },
   text_xl_medium:{
     ...base.text_xl,
-    fontWeight:"500",
+    fontFamily: fonts.poppinsMedium
   },
   text_xl_semibold:{
     ...base.text_xl,
-    fontWeight:"600",
+    fontFamily: fonts.poppinsSemiBold
   },
   text_xl_bold:{
     ...base.text_xl,
-    fontWeight:"700",
+    fontFamily: fonts.poppinsBold
   },
 
   text_lg_regular:{
     ...base.text_lg,
-    fontWeight:"400",
+    fontFamily: fonts.poppinsRegular
   },
   text_lg_medium:{
     ...base.text_lg,
-    fontWeight:"500",
+    fontFamily: fonts.poppinsMedium
   },
   text_lg_semibold:{
     ...base.text_lg,
-    fontWeight:"600",
+    fontFamily: fonts.poppinsSemiBold
   },
   text_lg_bold:{
     ...base.text_lg,
-    fontWeight:"700",
+    fontFamily: fonts.poppinsBold
   },
 
   text_md_regular:{
     ...base.text_md,
-    fontWeight:"400",
+    fontFamily: fonts.poppinsRegular
   },
   text_md_medium:{
     ...base.text_md,
-    fontWeight:"500",
+    fontFamily: fonts.poppinsMedium
   },
   text_md_semibold:{
     ...base.text_md,
-    fontWeight:"600",
+    fontFamily: fonts.poppinsSemiBold
   },
   text_md_bold:{
     ...base.text_md,
-    fontWeight:"700",
+    fontFamily: fonts.poppinsBold
   },
 
   text_sm_regular:{
     ...base.text_sm,
-    fontWeight:"400",
+    fontFamily: fonts.poppinsRegular
   },
   text_sm_medium:{
     ...base.text_sm,
-    fontWeight:"500",
+    fontFamily: fonts.poppinsMedium
   },
   text_sm_semibold:{
     ...base.text_sm,
-    fontWeight:"600",
+    fontFamily: fonts.poppinsSemiBold
   },
   text_sm_bold:{
     ...base.text_sm,
-    fontWeight:"700",
+    fontFamily: fonts.poppinsBold
   },
 
   text_xs_regular:{
     ...base.text_xs,
-    fontWeight:"400",
+    fontFamily: fonts.poppinsRegular
   },
   text_xs_medium:{
     ...base.text_xs,
-    fontWeight:"500",
+    fontFamily: fonts.poppinsMedium
   },
   text_xs_semibold:{
     ...base.text_xs,
-    fontWeight:"600",
+    fontFamily: fonts.poppinsSemiBold
   },
   text_xs_bold:{
     ...base.text_xs,
-    fontWeight:"700",
+    fontFamily: fonts.poppinsBold
   },
 })
