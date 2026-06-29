@@ -37,6 +37,7 @@ Designed to help you quickly scaffold Zustand-like state management using `zusti
 | Command | Shortcut | Description |
 |---------|----------|-------------|
 | `Zustic: Create VS Code Configuration` | `Ctrl+Shift+P` then type command | Creates `.vscode/settings.json` with auto-save, formatter, and ESLint settings |
+| `Zustic: Create react native structure` | `Ctrl+Shift+P` then type command | Creates react native structure file folders|
 
 ---
 
